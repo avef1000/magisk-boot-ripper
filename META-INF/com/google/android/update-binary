@@ -30,4 +30,15 @@ mount /data 2>/dev/null
 [ $MAGISK_VER_CODE -lt 20400 ] && require_new_magisk
 
 install_module
+
+# Install the app if not already installed
+APP_DIR=$MODDIR/system/app/MagiskBootRipper/MagiskBootRipper.apk
+if [ ! -f /data/app/com.example.magiskbootripper-* ]; then
+  ui_print "Installing Magisk Boot Ripper app..."
+  pm install -r $APP_DIR
+  ui_print "App installed successfully"
+else
+  ui_print "Magisk Boot Ripper app already installed"
+fi
+
 exit 0
