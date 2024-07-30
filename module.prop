@@ -1,7 +1,7 @@
-id=MMT-Ex
-name=Magisk Module Template Extended
-version=v3.7
-versionCode=19
-author=Zackptg5
-description=Magisk Module Template Extended
-updateJson=https://raw.githubusercontent.com/Zackptg5/MMT-Extended/master/update.json
+id=module-643
+name=magisk-boot-ripper
+version=v1.0
+versionCode=16
+author=AvrahamFreeman
+description= A magisk module the pulls a copy of your boot.img onto your sdcard
+updateJson=https://github.com/avef1000/magisk-boot-ripper/master/update.json
