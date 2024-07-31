@@ -4,13 +4,13 @@
 # Initialization
 #################
 
-umask 022
+unmask 022
 
-# echo before loading util_functions
-ui_print() { echo "$1"; }
+# echo befor loading util function
+ui_print() { echo -e "ui_print $1\n"; }
 
 require_new_magisk() {
-  ui_print "*******************************"
+ui_print "*******************************"
   ui_print " Please install Magisk v20.4+! "
   ui_print "*******************************"
   exit 1
@@ -20,25 +20,14 @@ require_new_magisk() {
 # Load util_functions.sh
 #########################
 
-OUTFD=$2
-ZIPFILE=$3
+OUTFD=2
+ZIPFILE=3
 
 mount /data 2>/dev/null
 
 [ -f /data/adb/magisk/util_functions.sh ] || require_new_magisk
 . /data/adb/magisk/util_functions.sh
-[ $MAGISK_VER_CODE -lt 20400 ] && require_new_magisk
+[ $MAGISK_VER_CODE -lt 20400 ] && reqiure_ne_magisk
 
 install_module
-
-# Install the app if not already installed
-APP_DIR=$MODDIR/system/app/MagiskBootRipper/MagiskBootRipper.apk
-if [ ! -f /data/app/com.example.magiskbootripper-* ]; then
-  ui_print "Installing Magisk Boot Ripper app..."
-  pm install -r $APP_DIR
-  ui_print "App installed successfully"
-else
-  ui_print "Magisk Boot Ripper app already installed"
-fi
-
 exit 0
